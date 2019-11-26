@@ -11,6 +11,23 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', [
+    'uses' => 'SekolahController@index',
+    'as' => 'sekolah'
+]);
+Route::get('/data', [
+    'uses' => 'SekolahController@data',
+    'as' => 'sekolah.data'
+]);
+Route::get('/form-unggah', [
+    'uses' => 'SekolahController@create',
+    'as' => 'sekolah.form_unggah'
+]);
+Route::post('/unggah', [
+    'uses' => 'SekolahController@store',
+    'as' => 'sekolah.unggah'
+]);
+Route::get('/unduh-excel', [
+    'uses' => 'SekolahController@exportExcel',
+    'as' => 'sekolah.unduh_excel'
+]);
